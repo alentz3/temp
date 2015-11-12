@@ -1,0 +1,74 @@
+body
+{
+    background: linen;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Changes the highlight color */
+::selection {
+  background: #D7D7D8;
+}
+
+h1 {
+	text-align: center;
+}
+
+.nav
+{
+	font: normal 16px/100% Verdana, Tahoma, sans-serif;
+	font-size:14px;
+	background: #4C4C4C;
+	padding: 0px;
+	width: 100%;
+	margin: 0px;
+	display: flex;
+	flex-flow: row wrap;
+	list-style: none;
+}
+.nav a
+{
+    color: white;
+
+    display: block;
+    text-decoration: none;
+    padding: 12px;
+}
+.nav li:hover
+{
+    background: #333;
+}
+
+.wrapper
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1000px;
+}
+
+#img-wrapper
+{
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+}
+
+.imgDiv
+{
+    margin: 4px;
+}
+
+.imgDiv:hover
+{
+	outline: 2px solid black;
+	cursor: pointer;
+}
+
+img
+{
+    max-height: 100px;
+    max-width: 95vw;
+}

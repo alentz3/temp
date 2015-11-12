@@ -1,0 +1,119 @@
+*
+{
+	font: normal 16px/100% Verdana, Tahoma, sans-serif;
+	font-size:14px;
+}
+
+/* Styles the background image */
+#bgImage {
+	z-index: -1;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 100%;
+	overflow:hidden;
+	transform: translate(-50%, -50%);
+	opacity:0.9;
+}
+
+#Logo {
+	top: 25%;
+	position: absolute;
+	transform: translate(-50%, -50%);
+    left: 50%;
+    width: 45%;
+}
+
+/* Changes the highlight color */
+::selection {
+  background: #D7D7D8;
+}
+
+/* Changes the background to a soothing linen color */
+body {
+    background-color: #333333;
+	margin: 0;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	overflow:hidden;
+}
+
+/* Gives the two types of input (URL and choosing a file)
+   a better look by changing the text style and box style */
+input {
+	border: solid 1px #E5E5E5;
+	outline: 0;
+	font: normal 13px/100% Verdana, Tahoma, sans-serif;
+	background: #F2F2F2;
+	box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+		-moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+		-webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+}
+
+/* Changes the input buttons and boxes slightly when hovered */
+input:hover, input:focus {
+	border-color: #C9C9C9;
+}
+
+/* Changes the position of the inputs to near the center of the page */
+#formDiv {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Changes the width and padding of the input buttons */
+.button {
+	padding: 10px;
+    width: 200px;
+}
+
+/* Changes the width and padding of the input text boxes. */
+#txt {
+	padding: 8px;	
+    width: 300px;
+}
+
+#fileChooser {
+	padding: 6px;	
+    width: 300px;
+}
+
+/* Formatting to make the top menubar look nicer */
+.nav
+{
+	font: normal 16px/100% Verdana, Tahoma, sans-serif;
+	font-size:14px;
+	background: #4C4C4C;
+	padding: 0px;
+	width: 100%;
+	margin: 0px;
+	display: flex;
+	flex-flow: row wrap;
+	list-style: none;
+}
+
+/* For credits */
+h1 {
+	color: white;
+}
+
+/* Formatting to make the menubar elements look nicer, including
+   color and text changes */
+.nav a
+{
+	color: white;
+
+	display: block;
+	text-decoration: none;
+	padding: 12px;
+}
+
+/* Changes the look of a menubar item when hovered over */
+.nav li:hover
+{
+	background: #333;
+}

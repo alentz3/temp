@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+Hibernate Mapping File
+    -Used to map the Image.java object class to the database table and corresponding columns.
+ -->
+
+<hibernate-mapping package="net.codejava.hibernate">
+    <!-- Class mapped to database table -->
+    <class name="image.Entity.Tag" table="tags">
+
+        <!-- Primary Key mapping -->
+        <id name="id" column="id" type="int">
+            <generator class="native"/>
+        </id>
+
+        <!-- Object variables mapped to database columns -->
+        <property name="tag" column="tag" type="String"/>
+
+    </class>
+</hibernate-mapping>

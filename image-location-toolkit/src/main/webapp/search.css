@@ -1,0 +1,168 @@
+*
+{
+	font: normal 16px/100% Verdana, Tahoma, sans-serif;
+	font-size:14px;
+}
+
+/* Changes the highlight color */
+::selection {
+  background: #D7D7D8;
+}
+
+h1 {
+	font-size:22px;
+	font-weight:bold;
+	text-align:center;
+}
+
+body
+{
+	background-color: linen;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 0px;
+}
+
+/* Formatting to make the top menubar look nicer */
+.nav
+{
+	font: normal 16px/100% Verdana, Tahoma, sans-serif;
+	font-size:14px;
+	background: #4C4C4C;
+	padding: 0px;
+	width: 100%;
+	margin: 0px;
+	display: flex;
+	flex-flow: row wrap;
+	list-style: none;
+}
+
+/* Formatting to make the menubar elements look nicer, including
+   color and text changes */
+.nav a
+{
+	color: white;
+	display: block;
+	text-decoration: none;
+	padding: 12px;
+}
+
+/* Changes the look of a menubar item when hovered over */
+.nav li:hover
+{
+	background: #333;
+}
+
+#searchFormDiv
+{
+	margin: 2px;
+}
+
+#checkboxes
+{
+	display: flex;
+	justify-content: space-around;
+}
+
+.searchline
+{
+	display: flex;
+}
+	.searchline input
+	{
+		width: 100%;
+	}
+
+	.searchline select
+	{
+		width: 200px;
+	}
+
+#buttons
+{
+	margin-top: 2px;
+	display: flex;
+	justify-content: space-between;
+}
+.button
+{
+
+	width: 100%;
+	padding: 12px;
+}
+
+.wrapper
+{
+	display: flex;
+	flex-direction: column;
+}
+
+
+#slideshow
+{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#thumbnail-wrapper
+{
+	display: flex;
+	flex-direction: row;
+	max-width: 1000px;
+}
+	#thumbnail-wrapper button
+	{
+		height: 100px;
+		margin-top: 0px;
+		margin-left: 1px;
+		margin-right: 1px;
+		width: initial;
+	}
+
+#thumbnails
+{
+	white-space: nowrap;
+	overflow: auto;
+	overflow-y: hidden;
+}
+	#thumbnails div
+	{
+		display: inline-block;
+	}
+	#thumbnails img
+	{
+		height: 100px;
+		margin-left: 1px;
+		margin-right: 1px;
+		display: inline-block;
+	}
+	#thumbnails img:hover
+	{
+    	cursor: pointer;
+	}
+
+#selected-img
+{
+	max-width: 1000px;
+	max-height:70vh;
+}
+
+#selected-img:hover {
+	cursor: pointer;
+}
+
+#searchingPara
+{
+	width: 100%;
+	text-align: center;
+}
+
+@media all and (max-width: 1000px)
+	{
+		#thumbnail-wrapper
+		{
+			max-width: 100vw;
+		}
+	}

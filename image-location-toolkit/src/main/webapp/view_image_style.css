@@ -1,0 +1,224 @@
+*
+{
+	font: normal 16px/100% Verdana, Tahoma, sans-serif;
+	font-size:14px;
+}
+html
+{
+	overflow-x:hidden;
+}
+/* Changes the highlight color */
+::selection {
+  background: #D7D7D8;
+}
+body {
+	background-color: linen;
+	margin: 0;
+}
+/* Styles the info window above the marker */
+#infoWin {
+	overflow:hidden;
+}
+#changeMap {
+	font: normal 16px/100% Verdana, Tahoma, sans-serif;
+	font-size:14px;
+	text-align: right;
+}
+
+/* Stylizes the text area by the slider */
+#distDiv {
+	background-color:clear;
+	borderRadius: 3px;
+	text-color:#B8BABA;
+	font-weight: bold;
+	font: normal 16px/100% Verdana, Tahoma, sans-serif;
+}
+
+/* Stylizes the geo-tagging button when it is disabled */
+#geoBtn:disabled {
+	background-color:#E6E9E9;
+	border:2px solid #E6E9E9;
+	borderRadius: 3px;
+	color:#B8BABA;
+	font: normal 16px/100% Verdana, Tahoma, sans-serif;
+	padding: 5px 5px;
+	box-shadow:0 2px 6px rgba(0,0,0,.3)
+}
+
+/* Stylizes the geo-tagging button when it is enabled */
+#geoBtn:enabled {
+	background-color:#fff;
+	border:2px solid #fff;
+	cursor: pointer;
+	color:rgb(25, 25, 25);
+	font: normal 16px/100% Verdana, Tahoma, sans-serif;
+	padding: 5px 5px;
+	box-shadow:0 2px 6px rgba(0,0,0,.3);
+}
+
+#searchByImageBtn {
+	background-color:#fff;
+	border:2px solid #fff;
+	cursor: pointer;
+	color:rgb(25, 25, 25);
+	font: normal 10px/100% Verdana, Tahoma, sans-serif;
+	padding: 2px 4px;
+	box-shadow:0 2px 6px rgba(0,0,0,.3);
+	position: relative;
+	bottom: 20px;
+}
+
+#geoBtn:enabled:hover, #searchByImageBtn:hover {
+	background-color:#F5F5F5;
+	border:2px solid #F5F5F5;
+}
+
+/* Formatting to make the top menubar look nicer */
+.nav
+{
+	font: normal 16px/100% Verdana, Tahoma, sans-serif;
+	font-size:14px;
+	background: #4C4C4C;
+	padding: 0px;
+	width: 100%;
+	margin: 0px;
+	display: flex;
+	flex-flow: row wrap;
+	list-style: none;
+}
+
+/* Formatting to make the menubar elements look nicer, including
+   color and text changes */
+.nav a
+{
+	color: white;
+
+	display: block;
+	text-decoration: none;
+	padding: 12px;
+}
+
+/* Changes the look of a menubar item when hovered over */
+.nav li:hover
+{
+	background: #333;
+}
+
+#wrapper
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-content: stretch;
+}
+
+#imagedata-mapcanvas-wrapper {
+	display: flex;
+	width: 100%;
+	flex-direction: row;
+	align-items: stretch;
+	justify-content: space-between;
+}
+
+#imagedata, #map-canvas
+{
+	flex: 1 100%;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	align-content: space-around;
+
+	margin: 20px;
+	max-width: 45%;
+	margin-right:auto;
+	margin-left: auto;
+}
+
+#map-canvas
+{
+	display: none;
+	box-shadow: 10px 10px 15px -10px rgba(0,0,0,0.6);
+}
+
+#imagedata
+{
+	display: flex;
+}
+
+#imagedata img
+{
+	box-shadow: 10px 10px 15px -10px rgba(0,0,0,0.6);
+	width: 100%;
+}
+
+td:nth-child(even) {text-align: left;}
+td:nth-child(odd) {text-align: right;}
+
+/* Small displays */
+@media all and (max-width: 500px)
+{
+	#wrapper
+	{
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		justify-content: stretch;
+	}
+
+	#map-canvas
+	{
+		min-height: 20em;
+	}
+
+	.nav
+	{
+		justify-content: space-around;
+	}
+
+	.nav
+	{
+		justify-content: space-around;
+	}
+}
+#thumbnail-wrapper
+{
+	display: flex;
+	flex-direction: column;
+}
+
+#thumbnail-text
+{
+	display: flex;
+	align-items: center;
+	background: #4c4c4c;
+	height: 40px;
+	color: white;
+	padding-left: 20px;
+}
+
+#thumbnails
+{
+    overflow: auto;
+    white-space: nowrap;
+	margin-left: 2px;
+}
+	#thumbnails div
+	{
+		display: inline-block;
+		margin: 2px 1px;
+	}
+
+	#thumbnails img
+	{
+		max-height: 100px;
+	}
+	#thumbnails:last-child
+	{
+		margin-right: 0px;
+	}
+
+	#thumbnails div:hover
+	{
+		outline: 1px solid #4c4c4c;
+		cursor: pointer;
+}

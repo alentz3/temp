@@ -1,0 +1,74 @@
+apply plugin: 'jetty'           // Jetty Plugin for testing - extends both 'Java' and 'War' plugins
+apply plugin: 'java'
+
+repositories {
+	mavenCentral()              // Uses Maven's central repositories
+}
+
+task wrapper(type: Wrapper) {   // Gradle Wrapper for auto-install if not found on computer
+    gradleVersion = '2.4'       // Latest gradle release
+}
+
+dependencies {
+
+    testCompile 'junit:junit:4.12'
+
+    compile 'org.springframework:spring-context:4.1.6.RELEASE'  // Spring Core framework for dependency injection
+    compile 'org.springframework:spring-web:4.1.6.RELEASE'
+
+
+
+    compile ('org.apache.tika:tika-parsers:1.8') {              // Apache Tika for parsing metadata from images
+        exclude group: 'org.ow2.asm'  // Exclude ASM group due to compatibility issues with asm-debug-all
+    }
+
+    compile 'org.hibernate:hibernate-core:4.3.10.Final'         // Hibernate for Object-relational mapping to databases
+
+    compile 'net.java.dev.jna:jna:4.1.0'                        // JNA - Version 4.1.0
+    compile 'net.java.dev.jna:jna-platform:4.1.0'
+
+    compile 'com.sun.jersey:jersey-server:1.13'                 // Jersey - Version 1.13
+    compile 'com.sun.jersey:jersey-core:1.13'
+    compile 'com.sun.jersey:jersey-servlet:1.13'
+    compile 'com.sun.jersey.contribs:jersey-multipart:1.13'
+    compile 'com.sun.jersey:jersey-json:1.13'
+
+    compile 'com.cedarsoftware:json-io:4.0.0'                   // JSON input/output
+    compile 'org.json:json:20141113'                            // JSON parsing
+
+    compile 'mysql:mysql-connector-java:5.1.13'	                // MySQL
+
+    compile ('org.mariadb.jdbc:mariadb-java-client:1.1.8') {    // MariaDB for relational database connection
+        exclude group: 'net.java.dev.jna'  // Exclude JNA group due to compatibility issues with version 3.3.0
+    }
+
+    compile 'org.apache.commons:commons-io:1.3.2'               // Apache commons tools
+
+    compile 'org.im4java:im4java:1.4.0'                         // For image editing before submitting to Tesseract OCR
+
+    compile 'com.github.rahulsom:geocoder:1.0'                  // Geocoder dependency to reverse-geocode
+
+    compile 'com.googlecode.json-simple:json-simple:1.1'        // For JSON object parsing
+
+    compile 'com.cedarsoftware:json-io:4.0.0'                   // For JSON object parsing
+
+    compile 'com.mashape.unirest:unirest-java:1.4.5'            // Unirest for HttpRequests for image tagging
+
+    compile 'org.slf4j:slf4j-log4j12:1.7.12'                    // Logger Bindings for StaticLoggerBinder class
+
+    compile 'org.apache.httpcomponents:httpclient:4.5'          // For HTTP requests
+
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.4.1' //for log4j
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.4.1' //for log4j
+
+    compile 'com.google.maps:google-maps-services:0.1.9'    //For Google API
+
+
+
+}
+
+
+
+
+
+

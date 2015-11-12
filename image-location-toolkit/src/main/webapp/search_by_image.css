@@ -1,0 +1,40 @@
+*
+{
+	font: normal 16px/100% Verdana, Tahoma, sans-serif;
+	font-size:14px;
+}
+
+body {
+	background-color: linen;
+}
+
+/* Changes the highlight color */
+::selection {
+  background: #D7D7D8;
+}
+
+.nav
+{
+	font: normal 16px/100% Verdana, Tahoma, sans-serif;
+	font-size:14px;
+	background: #4C4C4C;
+	padding: 0px;
+	width: 100%;
+	display: flex;
+	flex-flow: row wrap;
+
+	list-style: none;
+}
+.nav a
+{
+    color: white;
+
+    display: block;
+    text-decoration: none;
+    padding: 12px;
+}
+.nav li:hover
+{
+    background: #333;
+    box-shadow: 0px 0px 0px 1px rgba(51,51,51,1.0);
+}

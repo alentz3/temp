@@ -1,0 +1,102 @@
+FROM IMAGE OPERATIONS
+
+/**
+	 * Takes an array of image urls and extracts the coordinates if present.
+	 * Returns a string of the first location, or null if there is no
+	 * location or coordinates in any of the URLs in the array.
+	 *
+	 * @throws IOException
+	 * @throws MalformedURLException
+	 * @throws TikaException
+	 * @throws SAXException
+	 */
+	public String getURLLocation(String[] urls) throws MalformedURLException, IOException, SAXException, TikaException {
+		for (int i = 0; i < urls.length; i++) {
+			String url = urls[i];
+			InputStream inputStream = new URL(url).openStream();
+			BodyContentHandler handler = new BodyContentHandler();
+			Metadata metadata = new Metadata();
+			ParseContext parseContext = new ParseContext();
+
+			// Parser
+			AutoDetectParser parser = new AutoDetectParser();
+			parser.parse(inputStream, handler, metadata, parseContext);
+
+			longitude = metadata.get(Geographic.LONGITUDE);
+			latitude = metadata.get(Geographic.LATITUDE);
+			if (longitude != null && latitude != null) {
+				Image tempImg = new Image();
+				reverseGeocode(latitude, longitude, tempImg);
+				return tempImg.getLocation();
+			}
+		}
+		return null;
+	}
+
+
+FROM RESTAPI
+
+    /**
+     * Returns coordinates if it finds a match for a string and an empty string otherwise.
+     */
+    @GET
+    @Path("/search/geolocation")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response baltimoreSearch(String searchString) {
+    	List<Integer> imageIds = checkDB.SearchImagesForTags(searchString.replace(" ", ", "));
+    	if (!imageIds.isEmpty())
+    	{
+    		// Look for coordinates
+    		for (int id : imageIds) {
+    			if (checkDB.getImageById(id).getLatitude() != null
+    					&& checkDB.getImageById(id).getLatitude() != null) {
+    				// There is a match with a location!
+    				String returnStr = checkDB.getImageById(id).getLatitude() + ", " +
+    				checkDB.getImageById(id).getLongitude();
+    				return Response.ok(returnStr).build();
+    			}
+    		}
+    	}
+    	return Response.ok("").build();
+    }
+
+ FROM APIINTERACTION
+
+     //@Override
+     public void searchGoogleByString(String searchString) throws IOException {
+
+         String [] splitStringArray = searchString.split("\\s+");
+
+         String searchParameters = "";
+         for (int i = 0; i < splitStringArray.length; i++) {
+             searchParameters += splitStringArray[i];
+             if ((splitStringArray.length - i) != 1) {
+                 searchParameters += "%20";
+             }
+         }
+         System.out.println(searchParameters);
+
+         int counter = 0;
+         int numberOfImages = 15;
+         for (int i = 0; i < numberOfImages/5; i++) {
+             URL url = new URL("https://ajax.googleapis.com/ajax/services/search/images?&v=1.0&userip=INSERT-USER-IP&rsz=5&start=" + counter + "&q=" + searchParameters);
+             URLConnection connection = url.openConnection();
+             // .addRequestProperty("Referer", *//* Enter the URL of your site here *//*);
+
+             InputStream inputStream = connection.getInputStream();
+             String tempString = IOUtils.toString(inputStream, "UTF-8");
+
+             // Formats input String into JSON objects and Arrays
+             JSONObject jsonObject = new JSONObject(tempString);
+             JSONObject jsonObject1 = jsonObject.getJSONObject("responseData");
+             JSONArray jsonArray = jsonObject1.getJSONArray("results");
+
+             for (int j = 0; j < jsonArray.length(); j++) {
+                 JSONObject tempObject = jsonArray.getJSONObject(j);
+                 String imageUrl = tempObject.getString("unescapedUrl");
+                 System.out.println(imageUrl);
+             }
+             counter += 5;
+         }
+     }
+

@@ -1,0 +1,73 @@
+*
+{
+	font: normal 16px/100% Verdana, Tahoma, sans-serif;
+	font-size:14px;
+}
+
+body {
+	background-color: linen;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	margin: 0;
+}
+
+/* Changes the highlight color */
+::selection {
+  background: #D7D7D8;
+}
+
+/* CSS for checkbox div */
+#showAllDiv {
+	position:absolute;
+	margin-bottom: 22px;
+}
+
+/* Formatting to make the top menubar look nicer */
+.nav
+{
+	font: normal 16px/100% Verdana, Tahoma, sans-serif;
+	font-size:14px;
+	background: #4C4C4C;
+	padding: 0px;
+	width: 100%;
+	margin: 0px;
+	display: flex;
+	flex-flow: row wrap;
+	list-style: none;
+}
+
+/* Formatting to make the menubar elements look nicer, including
+   color and text changes */
+.nav a
+{
+	color: white;
+
+	display: block;
+	text-decoration: none;
+	padding: 12px;
+}
+
+/* Changes the look of a menubar item when hovered over */
+.nav li:hover
+{
+	background: #333;
+}
+
+/* Stylizes the text area by the slider */
+#distDiv {
+	background-color:clear;
+	borderRadius: 3px;
+	text-color:#B8BABA;
+	font-weight: bold;
+	font: normal 16px/100% Verdana, Tahoma, sans-serif;
+}
+
+#map-canvas
+{
+	height: 100%;
+	width: 100%;
+}
+
+/* CSS for the image preview */
+#thumbnail { box-shadow: 10px 10px 15px -10px rgba(0,0,0,0.6); }
